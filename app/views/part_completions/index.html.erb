@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Part Completions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Lesson part</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @part_completions.each do |part_completion| %>
+      <tr>
+        <td><%= part_completion.student %></td>
+        <td><%= part_completion.lesson_part %></td>
+        <td><%= link_to 'Show', part_completion %></td>
+        <td><%= link_to 'Edit', edit_part_completion_path(part_completion) %></td>
+        <td><%= link_to 'Destroy', part_completion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Part Completion', new_part_completion_path %>

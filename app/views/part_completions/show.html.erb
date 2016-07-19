@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @part_completion.student %>
+</p>
+
+<p>
+  <strong>Lesson part:</strong>
+  <%= @part_completion.lesson_part %>
+</p>
+
+<%= link_to 'Edit', edit_part_completion_path(@part_completion) %> |
+<%= link_to 'Back', part_completions_path %>
