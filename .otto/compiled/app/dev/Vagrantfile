@@ -59,16 +59,16 @@ SCRIPT
 
 config.vm.provision "shell", inline: $preshell
 config.vm.provision "docker" do |d|
-  d.run "postgresql", args: "-p 5432:5432", image: "postgres:9.5"
+  d.run "redis", args: "-p 6379:6379", image: "redis:3"
 end
 
 # Sync our own dep folder in there
-config.vm.synced_folder '/Users/kylemartin/development/student_education-server/.otto/appfile/deps/5b18aa002a643beec4692279cbaf4f77', "/otto-deps/postgresql-b0f8aaef-4cb4-2ef1-cb31-07cbbd925c7d"
+config.vm.synced_folder '/Users/kylemartin/development/student_education-server/.otto/appfile/deps/64983b6cfa2bcecaaccd0cc781256405', "/otto-deps/redis-a6d8b83a-5ec4-8318-a8ec-20964e865b51"
 
 # Foundation configuration for dev dep
 
-dir = "/otto/foundation-postgresql-1"
-config.vm.synced_folder '/Users/kylemartin/development/student_education-server/.otto/compiled/dep-b0f8aaef-4cb4-2ef1-cb31-07cbbd925c7d/foundation-consul/app-dev-dep', dir
+dir = "/otto/foundation-redis-1"
+config.vm.synced_folder '/Users/kylemartin/development/student_education-server/.otto/compiled/dep-a6d8b83a-5ec4-8318-a8ec-20964e865b51/foundation-consul/app-dev-dep', dir
 config.vm.provision "shell", inline: "cd #{dir} && bash #{dir}/main.sh"
 
 
@@ -84,16 +84,16 @@ SCRIPT
 
 config.vm.provision "shell", inline: $preshell
 config.vm.provision "docker" do |d|
-  d.run "redis", args: "-p 6379:6379", image: "redis:3"
+  d.run "postgresql", args: "-p 5432:5432", image: "postgres:9.5"
 end
 
 # Sync our own dep folder in there
-config.vm.synced_folder '/Users/kylemartin/development/student_education-server/.otto/appfile/deps/64983b6cfa2bcecaaccd0cc781256405', "/otto-deps/redis-a6d8b83a-5ec4-8318-a8ec-20964e865b51"
+config.vm.synced_folder '/Users/kylemartin/development/student_education-server/.otto/appfile/deps/5b18aa002a643beec4692279cbaf4f77', "/otto-deps/postgresql-b0f8aaef-4cb4-2ef1-cb31-07cbbd925c7d"
 
 # Foundation configuration for dev dep
 
-dir = "/otto/foundation-redis-1"
-config.vm.synced_folder '/Users/kylemartin/development/student_education-server/.otto/compiled/dep-a6d8b83a-5ec4-8318-a8ec-20964e865b51/foundation-consul/app-dev-dep', dir
+dir = "/otto/foundation-postgresql-1"
+config.vm.synced_folder '/Users/kylemartin/development/student_education-server/.otto/compiled/dep-b0f8aaef-4cb4-2ef1-cb31-07cbbd925c7d/foundation-consul/app-dev-dep', dir
 config.vm.provision "shell", inline: "cd #{dir} && bash #{dir}/main.sh"
 
 
