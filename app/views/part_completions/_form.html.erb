@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :student_id %>
-    <%= f.text_field :student_id %>
+    <%= f.collection_select :student_id, User.all, :id, :name %>
   </div>
 
   <div class="field">
     <%= f.label :lesson_part_id %>
-    <%= f.text_field :lesson_part_id %>
+    <%= f.grouped_collection_select :lesson_part_id, Lesson.order(:position), :lesson_parts, :title, :id, :title %>
   </div>
 
   <div class="actions">

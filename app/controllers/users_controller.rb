@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @user.as_json(include:[completed_parts: { except: [:position, :updated_at]}])}
+    end
   end
 
   # GET /users/new
@@ -58,6 +62,13 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def progress
+    respond_to do |format|
+      format.html { render :progress }
+      format.json { render json: @user.as_json(include:[completed_parts: { except: [:position, :updated_at]}])}
     end
   end
 

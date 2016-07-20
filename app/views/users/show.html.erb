@@ -1,9 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<h1>
+  Name: <%= @user.name %>
+</h1>
+
+
+<h2>Courses</h2>
+<% if @user.completed_parts.empty? %>
+  <p>Looks like you haven't completed any lessons yet :(</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Lesson</th>
+        <th>Lesson part</th>
+        <th>Completed</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user.completed_parts.each do |completed_part| %>
+        <tr>
+          <td><%= completed_part.lesson.title %></td>
+          <td><%= completed_part.title %></td>
+          <td><%= completed_part.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
