@@ -1,0 +1,24 @@
+<% if user.completed_parts.empty? %>
+  <p>No lessons have been completed :(</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Lesson</th>
+        <th>Lesson part</th>
+        <th>Completed</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% user.completed_parts.each do |completed_part| %>
+        <tr>
+          <td><%= completed_part.lesson.title %></td>
+          <td><%= completed_part.title %></td>
+          <td><%= completed_part.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -7,5 +7,6 @@ RSpec.describe User, type: :model do
 
   describe "relationships" do
     it { is_expected.to have_many :part_completions }
+    it { is_expected.to belong_to :teacher }
   end
 end

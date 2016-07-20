@@ -19,3 +19,15 @@ LessonPart.destroy_all
 end
 
 p "Created #{Lesson.count} lessons with 3 parts each"
+
+student_count = 0
+3.times do |n|
+  teacher = Teacher.create(name: "Teacher#{n}")
+
+  30.times do
+    User.create(name: "Student#{student_count}", teacher_id: teacher.id)
+    student_count = student_count + 1 
+  end
+end
+
+p "Created #{Teacher.count} teachers with 30 students each"
