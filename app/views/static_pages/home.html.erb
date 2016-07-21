@@ -1,0 +1,13 @@
+<section>
+  <h2>Part 1</h2>
+  <ul>
+    <li><%= link_to "Set a students progress", part_completions_path %></li>
+    <li><%= link_to "A JSON representation of a student and their associated progress", user_path(id: 1, format: :json) %></li>
+  </ul>
+</section>
+<section>
+  <h2>Part 2</h2>
+  <ul>
+    <li><%= link_to "Report of a teacher's students progress", teacher_path(id: 1) %></li>
+  </ul>
+</section>

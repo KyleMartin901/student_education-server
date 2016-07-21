@@ -2,12 +2,10 @@
 
 <h2>Name: <%= @teacher.name %></h2>
 
-<ul>
-  <% @teacher.users.each do |student| %>
-    <h3><%= student.name %> Progress:</h3>
-    <%= render 'shared/user_progress', user: student %>
-  <% end %>
-</ul>
+<% @teacher.users.each do |student| %>
+  <h3><%= student.name %> Progress:</h3>
+  <%= render 'shared/student_progress', student: student %>
+<% end %>
 
 
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
